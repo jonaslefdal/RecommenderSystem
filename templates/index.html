@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Game Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background-color: #0f172a;
+        color: #e5e7eb;
+      }
+
+      body {
+        margin: 0;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        color: #9ca3af;
+        margin-bottom: 1.5rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        padding: 0.9rem 1rem;
+        border-radius: 0.75rem;
+        background: linear-gradient(135deg, #111827, #020617);
+        border: 1px solid #1f2937;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.6);
+        border-color: #22c55e;
+      }
+
+      .game-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .game-id {
+        font-size: 0.8rem;
+        color: #9ca3af;
+      }
+
+      .muted {
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Game Index</h1>
+      <div class="subtitle">
+        Viser alle {{ games|length }} spill fra datasettet. Klikk senere kan kobles til anbefalinger.
+      </div>
+
+      <div class="grid">
+        {% for game in games %}
+            <a
+            href="{{ url_for('game', app_id=game.app_id) }}"
+            class="card"
+            data-name="{{ game.app_name | lower }}"
+            style="text-decoration: none; color: inherit;"
+            >
+            <img
+                src="https://cdn.akamai.steamstatic.com/steam/apps/{{ game.app_id }}/header.jpg"
+                alt="{{ game.app_name }}"
+                style="width: 100%; border-radius: 0.5rem; margin-bottom: 0.5rem;"
+                onerror="this.style.display='none';"
+            />
+            <div class="game-title">{{ game.app_name }}</div>
+            <div class="game-id">App ID: {{ game.app_id }}</div>
+            </a>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

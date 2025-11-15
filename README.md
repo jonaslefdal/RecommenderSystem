@@ -1,19 +1,24 @@
-#1  git clone https://github.com/jonaslefdal/RecommenderSystem.git
+# How to use
+
+### #1  
+git clone https://github.com/jonaslefdal/RecommenderSystem.git<br>
     cd RecommenderSystem
 
-#2  WINDOWS:
-    python -m venv venv
-    .\venv\Scripts\activate
-
-#2  MAC: 
-    python -m venv venv
+### #2 
+WINDOWS:<br>
+    python -m venv venv<br>
+    .\venv\Scripts\activate<br><br>
+MAC: <br> 
+    python -m venv venv <br>
     source venv/bin/activate
 
-#3  pip install -r requirements.txt
+### #3
+pip install -r requirements.txt
 
-#4 python app.py
+### #4 
+python app.py
 
 
-Offline Evaluation
+<h2>Offline Evaluation</h2>
 
-#1 python eval.py
+python eval.py

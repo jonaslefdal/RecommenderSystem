@@ -1,6 +1,6 @@
 import pandas as pd
 
-INPUT_FILE = "steam_reviews.csv"
+INPUT_FILE = "data/steam_reviews.csv"
 
 # Load only necessary columns
 cols = ["author.steamid", "app_id", "app_name", "recommended"]

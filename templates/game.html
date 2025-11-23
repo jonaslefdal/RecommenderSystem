@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       :root {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: system-ui, sans-serif;
         background-color: #0f172a;
         color: #e5e7eb;
       }
@@ -102,7 +102,7 @@
   </head>
   <body>
     <div class="container">
-      <a href="{{ url_for('index') }}" class="back-link">← Tilbake til alle spill</a>
+      <a href="{{ url_for('index') }}" class="back-link">← Back to all games</a>
 
       <div class="header">
         <img
@@ -113,12 +113,12 @@
         <div class="title-block">
           <h1>{{ game.app_name }}</h1>
           <div class="subtitle">
-            Basert på hva andre brukere som liker dette spillet også liker, anbefaler vi disse spillene:
+            Based on other user rating, we recommend the following games:
           </div>
         </div>
       </div>
 
-      <h2>Anbefalte spill</h2>
+      <h2>Recommended Games </h2>
       <div class="grid">
         {% for rec in recommendations %}
         <a
@@ -133,7 +133,7 @@
           />
           <div class="game-title">{{ rec.app_name }}</div>
           <div class="game-id">App ID: {{ rec.app_id }}</div>
-          <div class="sim-score">similarity: {{ "%.3f"|format(rec.similarity) }}</div>
+          <div class="sim-score">Similarity: {{ "%.3f"|format(rec.similarity) }}</div>
         </a>
         {% endfor %}
       </div>

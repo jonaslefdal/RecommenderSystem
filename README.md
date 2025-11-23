@@ -16,9 +16,9 @@ MAC: <br>
 pip install -r requirements.txt
 
 ### #4 
-python app.py
+python src/app.py
 
 
 <h2>Offline Evaluation</h2>
 
-python eval.py
+Run the Jupiter Notebook
